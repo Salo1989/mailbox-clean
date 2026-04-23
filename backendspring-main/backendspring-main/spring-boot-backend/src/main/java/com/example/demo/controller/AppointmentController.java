@@ -3,12 +3,12 @@ package com.example.demo.controller;
 import com.example.demo.model.Appointment;
 import com.example.demo.repository.AppointmentRepository;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/appointments")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://13.60.60.33")
 public class AppointmentController {
 
     private final AppointmentRepository appointmentRepository;
