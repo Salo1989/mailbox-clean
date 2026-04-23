@@ -1,0 +1,119 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "sans-serif",
+      "count": 151
+    },
+    {
+      "family": "Arial",
+      "count": 118
+    },
+    {
+      "family": "Open Sans",
+      "count": 114
+    },
+    {
+      "family": "Helvetica",
+      "count": 35
+    },
+    {
+      "family": "Verdana",
+      "count": 33
+    },
+    {
+      "family": "Noto Sans",
+      "count": 31
+    },
+    {
+      "family": "Geneva",
+      "count": 2
+    }
+  ],
+  "colors": {
+    "primary": "#428BCA",
+    "accent": "#293CE6",
+    "background": "#DDDDDD",
+    "textPrimary": "#293CE6",
+    "link": "#293CE6"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Open Sans",
+      "heading": "Open Sans"
+    },
+    "fontStacks": {
+      "body": [
+        "Open Sans",
+        "Arial",
+        "sans-serif"
+      ],
+      "heading": [
+        "Open Sans",
+        "Arial",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Noto Sans",
+        "Helvetica",
+        "Verdana",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "28px",
+      "h2": "15px",
+      "body": "15px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "3px"
+  },
+  "components": {
+    "input": {
+      "background": "#FFFFFF",
+      "textColor": "#444444",
+      "borderColor": null,
+      "borderRadius": "0px",
+      "borderRadiusCorners": {
+        "topLeft": "0px",
+        "topRight": "0px",
+        "bottomRight": "0px",
+        "bottomLeft": "0px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "https://www.themailboxstorebusinesssolutions.com/Portals/50/The%20Mailbox%20logo%203AAAAJPG.jpg",
+    "favicon": null,
+    "ogImage": null
+  },
+  "__framework_hints": [
+    "bootstrap"
+  ],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Strong indicators: header logo linking to homepage, header location, visible, src contains logo, class contains logo, reasonable size. Score: 100 (clear winner by 62 points)",
+    "confidence": 0.9
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "LLM failed"
+    },
+    "secondary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "LLM failed"
+    },
+    "confidence": 0
+  },
+  "confidence": {
+    "buttons": 0,
+    "colors": 0,
+    "overall": 0
+  }
+}

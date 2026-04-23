@@ -1,0 +1,203 @@
+MPORTANT:
+Build a complete, production-ready website.
+Do NOT leave placeholders.
+Do NOT invent business information.
+Use only the data provided below.
+
+PROJECT GOAL
+
+Create a modern, professional, conversion-focused business website for a fingerprinting and business services center in Margate, Florida.
+
+The website must visually and structurally prioritize the THREE MAIN MONEY-MAKING SERVICES, and list all other services as secondary.
+
+TECH STACK (MANDATORY)
+
+Use HTML + CSS + JavaScript
+
+No backend required
+
+Mobile-first, responsive layout
+
+Clean folder structure
+
+Must run immediately on Replit without configuration
+
+PRIMARY SERVICES (HIGH PRIORITY – FEATURED EVERYWHERE)
+
+These MUST appear in:
+
+Hero section
+
+Featured services section
+
+Navigation menu
+
+Call-to-action buttons
+
+1. FD-258 FBI Fingerprint Cards
+
+Ink & digital fingerprinting
+
+FBI background checks
+
+Immigration, visa, licensing & employment use
+
+2. Live Scan Fingerprinting
+
+Level 2 background checks
+
+FDLE & FBI submissions
+
+Walk-ins and appointments
+
+3. Private Mailbox Rentals
+
+Real street address (not PO Box)
+
+Personal & business mailboxes
+
+Mail receiving & holding
+
+Each primary service must include:
+
+Short description
+
+Icon
+
+Clear CTA button (“Book Appointment” or “Call Now”)
+
+SECONDARY SERVICES (LOW PRIORITY – LIST FORMAT ONLY)
+
+Display under a section titled “Additional Business Services”:
+
+Notary Public
+
+Passport Photos
+
+Document Scanning & Imaging
+
+Fax (Send & Receive)
+
+Copy & Print Services
+
+Business Cards, Flyers & Brochures
+
+Banner & Poster Printing
+
+Packing & Shipping (USPS, FedEx, DHL, UPS Access Point)
+
+Custom Box Making & Crating
+
+Key Duplication
+
+Greeting Cards
+
+Office & Business Supplies
+
+Promotional Products
+
+Computer Rental
+
+Do NOT give these visual priority over primary services.
+
+BUSINESS INFORMATION (USE EXACTLY AS WRITTEN)
+
+Business Name:
+Mobile Lifescan & The Mailbox Store – Business Solutions
+
+Address:
+3200 NW 62nd Ave
+Margate, FL 33063
+
+Phone Numbers:
+(954) 323-3802
+(954) 278-9005
+
+Emails:
+info@mobillifescan.com
+
+mailboxmargate@gmail.com
+
+Requirements:
+
+Click-to-call links
+
+Click-to-email links
+
+Embedded Google Map using address
+
+REQUIRED PAGES / SECTIONS
+
+Create ALL of the following:
+
+Home
+
+Fingerprinting Services (FD-258 + Live Scan)
+
+Mailbox Rentals
+
+Additional Services
+
+Contact Us
+
+Use a simple multi-page structure OR a single-page layout with anchored sections.
+
+DESIGN REQUIREMENTS (STRICT)
+
+Professional business aesthetic
+
+Neutral colors: blue, gray, white
+
+Large readable fonts
+
+Trust-focused layout
+
+No animations that hurt performance
+
+Looks legitimate for government-related services
+
+CALL-TO-ACTIONS (MANDATORY)
+
+Include:
+
+“Book Appointment”
+
+“Call Now”
+
+“Get a Mailbox”
+
+Place CTAs:
+
+In hero section
+
+Under each primary service
+
+In footer
+
+SEO & LOCAL OPTIMIZATION
+
+Include headings and meta tags targeting:
+
+FD-258 fingerprint cards Margate FL
+
+Live Scan fingerprinting Margate Florida
+
+FBI fingerprint cards Florida
+
+Mailbox rental Margate FL
+
+Use proper semantic HTML (h1–h3).
+
+FINAL OUTPUT REQUIREMENTS
+
+Provide full project files
+
+No TODO comments
+
+No placeholder text
+
+No fake testimonials
+
+Code must be clean and readable
+
+The result should look like a real, trustworthy business website that converts visitors into phone calls and appointments.

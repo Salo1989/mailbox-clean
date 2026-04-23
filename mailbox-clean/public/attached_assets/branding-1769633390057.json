@@ -1,0 +1,90 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Poppins",
+      "count": 105
+    },
+    {
+      "family": "sans-serif",
+      "count": 101
+    },
+    {
+      "family": "Raleway",
+      "count": 2
+    },
+    {
+      "family": "Montserrat",
+      "count": 1
+    }
+  ],
+  "colors": {
+    "primary": "#4B00E7",
+    "accent": "#A82224",
+    "background": "#FFFFFF",
+    "textPrimary": "#A82224",
+    "link": "#A82224"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Poppins",
+      "heading": "Poppins"
+    },
+    "fontStacks": {
+      "body": [
+        "Poppins",
+        "sans-serif"
+      ],
+      "heading": [
+        "Poppins",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Poppins",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "37px",
+      "h2": "36px",
+      "body": "15px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "5px"
+  },
+  "components": {
+    "input": {
+      "background": "#FFFFFF",
+      "textColor": "#333333",
+      "borderColor": "#E2E7EA",
+      "borderRadius": "5px",
+      "borderRadiusCorners": {
+        "topLeft": "5px",
+        "topRight": "5px",
+        "bottomRight": "5px",
+        "bottomLeft": "5px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "https://mobillifescan.com/wp-content/uploads/2020/10/ML-Logo-Horizontal-Web-Smaller_small-1.png",
+    "favicon": "https://mobillifescan.com/wp-content/uploads/2018/11/ML-Print-Logo-100x100.jpg",
+    "ogImage": "http://mobillifescan.com/wp-content/uploads/2019/02/fingerprints-FB-1.jpg"
+  },
+  "__framework_hints": [
+    "WordPress 6.8.3"
+  ],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Heuristic fallback: Moderate indicators: header logo linking to homepage, header location, visible, highest logo on page, alt matches logo/brand, src contains logo, class contains logo, src contains brand name \"mobillifescan\", reasonable size. Score: 126. May benefit from LLM validation.",
+    "confidence": 0.5
+  },
+  "confidence": {
+    "buttons": 0,
+    "colors": 0,
+    "overall": 0
+  }
+}
