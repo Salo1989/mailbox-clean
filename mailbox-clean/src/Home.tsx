@@ -12,12 +12,10 @@ const mailboxRentals1 =
   "/attached_assets/128c2070-808f-4520-a689-2da69fcf2912_1769780630700.jpeg";
 const mailboxRentals2 =
   "/attached_assets/9cfd3cd2-61b8-45eb-bda6-1b30835b6958_1769780630700.jpeg";
-const serviceCounter =
-  "/attached_assets/21ea5ccb-a75c-4868-9cef-14d7308807c6_1769780630700.jpeg";
 const fd258Card =
   "/attached_assets/f37505e5-ff1d-4f17-bf12-492c0f324f52_1769945882738.jpeg";
 const workstation =
-  "/attached_assets/954c5c3f-c7dc-4f5a-a188-ef08f501434a_1769780630700.jpeg";
+  "/attached_assets/fingerscanner.jpg";
 
 const video2 =
   "/attached_assets/1afe9cf8-8a68-47e1-9f7c-db8addad4039_1769780630700.mp4";
@@ -52,18 +50,18 @@ const primaryServices = [
       "Professional licensing",
     ],
   },
-  {
-    title: "Live Scan Fingerprinting",
-    description:
-      "Fast and accurate Level 2 background checks with FDLE and FBI submissions from a licensed provider.",
-    image: serviceCounter,
-    features: [
-      "Level 2 background checks",
-      "FDLE & FBI submissions",
-      "Walk-ins welcome",
-      "Results in minutes",
-    ],
-  },
+{
+  title: "Live Scan Fingerprinting",
+  description:
+    "Fast and accurate Level 2 background checks with FDLE and FBI submissions from a licensed provider.",
+  image: workstation,
+  features: [
+    "Level 2 background checks",
+    "FDLE & FBI submissions",
+    "Walk-ins welcome",
+    "Results in minutes",
+  ],
+},
   {
     title: "Private Mailbox Rentals",
     description:
@@ -227,6 +225,8 @@ export default function Home() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showServices, setShowServices] = useState(false);
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -348,16 +348,79 @@ export default function Home() {
         throw new Error("Failed to save appointment");
       }
 
-      alert("Appointment request submitted successfully");
+      setSuccessMessage("Appointment request submitted successfully!");
+      setTimeout(() => setSuccessMessage(""), 4000);
       form.reset();
     } catch (error) {
       console.error("Error saving appointment:", error);
-      alert("Could not submit appointment");
+      setErrorMessage("Could not submit appointment");
+      setTimeout(() => setErrorMessage(""), 4000);
     }
   };
 
   return (
     <div style={styles.page}>
+
+      <style>
+        {`
+          @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+          }
+        `}
+      </style>
+
+      {successMessage && (
+        <div
+          style={{
+            position: "fixed",
+            top: "20px",
+            right: "20px",
+            minWidth: "280px",
+            maxWidth: "350px",
+            background: "linear-gradient(135deg, #22c55e, #16a34a)",
+            color: "#fff",
+            borderRadius: "12px",
+            padding: "14px 18px",
+            boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
+            zIndex: 9999,
+            fontWeight: 600,
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            animation: "slideIn 0.4s ease",
+          }}
+        >
+          <span style={{ fontSize: "18px" }}>✔</span>
+          <span>{successMessage}</span>
+        </div>
+      )}
+
+      {errorMessage && (
+        <div
+          style={{
+            position: "fixed",
+            top: "70px",
+            right: "20px",
+            minWidth: "280px",
+            maxWidth: "350px",
+            background: "linear-gradient(135deg, #ef4444, #dc2626)",
+            color: "#fff",
+            borderRadius: "12px",
+            padding: "14px 18px",
+            boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
+            zIndex: 9999,
+            fontWeight: 600,
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            animation: "slideIn 0.4s ease",
+          }}
+        >
+          <span style={{ fontSize: "18px" }}>✖</span>
+          <span>{errorMessage}</span>
+        </div>
+      )}
       <div style={{ padding: "20px", marginBottom: "20px" }}>
         <button
           onClick={() => setShowMessage((prev) => !prev)}

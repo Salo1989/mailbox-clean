@@ -1,11 +1,10 @@
-﻿FROM eclipse-temurin:17-jdk-alpine
+﻿FROM maven:3.9-eclipse-temurin-17-alpine
 
 WORKDIR /app
 
 COPY spring-boot-backend/pom.xml ./
 COPY spring-boot-backend/src ./src
 
-RUN apk add --no-cache maven
 RUN mvn clean package -DskipTests
 
 EXPOSE 8080
