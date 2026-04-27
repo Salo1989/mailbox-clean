@@ -181,4 +181,38 @@
     right: 0;
     border-right-color: var(--border);
   }
+  .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* 👈 2 per row on phones */
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* still 2 */
+    gap: 12px;
+  }
+}
+.service-card {
+  background: #fff;
+  border: 1px solid #dbe4ee;
+  border-radius: 22px;
+  padding: 20px;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: 0 14px 30px rgba(15,23,42,.06);
+  transition: all 0.25s ease;
+  cursor: pointer;
+
+  min-height: 90px;          /* 👈 keeps shape consistent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 }

@@ -1,7 +1,8 @@
 import React, { useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import ServicesSection from "./ServicesSection";
-
+import ServiceImage from "./components/ServiceImage";
+import Header from "./components/Header";
+import ServicesSection from "./components/ServicesSection";
 const storefrontMain =
   "/attached_assets/fa69cb6a-0bc0-481e-8737-890e8cfc3980_1769780630700.jpeg";
 const storefrontAlt =
@@ -91,27 +92,7 @@ const whyChooseUs = [
   },
 ];
 
-const shippingServices = [
-  "FedEx Shipping",
-  "UPS Shipping",
-  "DHL Shipping",
-  "USPS Shipping",
-];
 
-const additionalServices = [
-  "Notary Public",
-  "Passport Photos",
-  "Document Scanning & Imaging",
-  "Fax (Send & Receive)",
-  "Copy & Print Services",
-  "Business Cards, Flyers & Brochures",
-  "Banner & Poster Printing",
-  "Packing Services",
-  "Custom Box Making & Crating",
-  "Key Duplication",
-  "Office & Business Supplies",
-  "Computer Rental",
-];
 
 const gallery = [
   storefrontMain,
@@ -121,6 +102,8 @@ const gallery = [
   mailboxRentals2,
   workstation,
 ];
+
+
 
 const videos = [
   {
@@ -180,6 +163,15 @@ const styles = {
     fontWeight: 700,
     textDecoration: "none",
   } as const,
+  serviceCard: {
+    background: "#fff",
+    border: "1px solid #dbe4ee",
+    borderRadius: "22px",
+    padding: "28px 20px",
+    textAlign: "center",
+    fontWeight: 600,
+    boxShadow: "0 14px 30px rgba(15,23,42,.06)",
+  } as const,
 };
 
 const inputStyle: CSSProperties = {
@@ -200,6 +192,7 @@ function SectionTitle({
   subtitle?: string;
 }) {
   return (
+    
     <div style={{ textAlign: "center", maxWidth: 760, margin: "0 auto 44px" }}>
       <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", margin: "0 0 14px" }}>
         {title}
@@ -360,7 +353,7 @@ export default function Home() {
 
   return (
     <div style={styles.page}>
-
+     <Header />
       <style>
         {`
           @keyframes slideIn {
@@ -421,238 +414,267 @@ export default function Home() {
           <span>{errorMessage}</span>
         </div>
       )}
-      <div style={{ padding: "20px", marginBottom: "20px" }}>
-        <button
-          onClick={() => setShowMessage((prev) => !prev)}
-          style={{
-            background: "#0369a1",
-            color: "white",
-            border: "none",
-            borderRadius: "10px",
-            padding: "12px 18px",
-            fontWeight: 600,
-            cursor: "pointer",
-            marginBottom: "20px",
-            transition: "all 0.2s ease",
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-          onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-        >
-          {showMessage ? "Hide Info" : "Show More Info"}
-        </button>
+      
+<nav style={{ background: "#fff", borderBottom: "1px solid #e2e8f0" }}>
+  <div
+    style={{
+      ...styles.container,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      padding: "14px 0",
+      flexWrap: "wrap",
+      gap: "12px",
+    }}
+  >
+    {/* LOGO */}
+    <img
+      src="/logo.png"
+      alt="Logo"
+      style={{
+        height: "150px",
+        maxWidth: "250px",
+        objectFit: "contain",
+      }}
+    />
 
-        {showMessage && (
-          <div
-            style={{
-              background: "#f8fafc",
-              border: "1px solid #cbd5e1",
-              borderRadius: "12px",
-              padding: "16px",
-              marginBottom: "20px",
-              color: "#334155",
-              maxWidth: "700px",
-            }}
-          >
-            We offer fast, professional service for fingerprinting, mailbox
-            rentals, shipping, and more.
-          </div>
-        )}
+    {/* BUTTONS */}
+    <div
+      style={{
+        display: "flex",
+        gap: "10px",
+        flexWrap: "wrap",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      {/* SHOW INFO */}
+      <button
+        type="button"
+        onClick={() => {
+          setShowMessage((prev) => !prev);
+          setShowServices(false);
+        }}
+        style={{ ...styles.outlineBtn, transition: "all 0.2s ease" }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "translateY(-3px)";
+          e.currentTarget.style.boxShadow =
+            "0 10px 22px rgba(15,23,42,.18)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "translateY(0)";
+          e.currentTarget.style.boxShadow = "none";
+        }}
+      >
+        {showMessage ? "Hide Info" : "Show More Info"}
+      </button>
 
-        <button
-          onClick={() => setShowServices((prev) => !prev)}
-          style={{
-            background: "#0f172a",
-            color: "white",
-            border: "none",
-            borderRadius: "10px",
-            padding: "12px 18px",
-            fontWeight: 600,
-            cursor: "pointer",
-            marginBottom: "20px",
-            marginLeft: "10px",
-            transition: "all 0.2s ease",
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-          onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-        >
-          {showServices ? "Hide Services" : "Show Services"}
-        </button>
+      {/* SHOW SERVICES */}
+      <button
+        type="button"
+        onClick={() => {
+          setShowServices((prev) => !prev);
+          setShowMessage(false);
+        }}
+        style={{ ...styles.outlineBtn, transition: "all 0.2s ease" }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "translateY(-3px)";
+          e.currentTarget.style.boxShadow =
+            "0 10px 22px rgba(15,23,42,.18)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "translateY(0)";
+          e.currentTarget.style.boxShadow = "none";
+        }}
+      >
+        {showServices ? "Hide Services" : "Show Services"}
+      </button>
 
-        <ServicesSection
-          showServices={showServices}
-          shippingServices={shippingServices}
-          additionalServices={additionalServices}
-          styles={styles}
-        />
-      </div>
+      <a href="#services" style={styles.outlineBtn}>Services</a>
+      <a href="#hours" style={styles.outlineBtn}>Hours</a>
+      <a href="#contact" style={styles.outlineBtn}>Contact</a>
 
-      <header style={{ background: "#0369a1", color: "#fff" }}>
-        <div
-          style={{
-            ...styles.container,
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: 18,
-            padding: "10px 0",
-            fontSize: 14,
-          }}
-        >
-          <span>📞 {business.phone1}</span>
-          <span>📧 {business.email1}</span>
-          <span>📍 Margate, FL</span>
-        </div>
-      </header>
+      <a href={`tel:${business.phone1}`} style={styles.primaryBtn}>
+        Call Now
+      </a>
 
-      <nav style={{ background: "#fff", borderBottom: "1px solid #e2e8f0" }}>
-        <div
-          style={{
-            ...styles.container,
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            gap: 16,
-            padding: "18px 0",
-            flexWrap: "wrap",
-          }}
-        >
-          <div>
-            <div style={{ fontSize: "1.6rem", fontWeight: 700 }}>
-              {business.name}
-            </div>
-            <div style={{ color: "#64748b", fontSize: ".95rem" }}>
-              {business.subtitle}
-            </div>
-          </div>
+      <Link to="/admin" style={styles.outlineBtn}>
+        Admin
+      </Link>
+    </div>
+  </div>
 
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-            <a href="#services" style={styles.outlineBtn}>
-              Services
-            </a>
-            <a href="#hours" style={styles.outlineBtn}>
-              Hours
-            </a>
-            <a href="#contact" style={styles.outlineBtn}>
-              Contact
-            </a>
-            <a href={`tel:${business.phone1}`} style={styles.primaryBtn}>
-              Call Now
-            </a>
-            <Link to="/admin" style={styles.outlineBtn}>
-              Admin
-            </Link>
-          </div>
-        </div>
-      </nav>
-
-      <section
+  {/* ✅ SHOW INFO IMAGE */}
+  {showMessage && (
+    <div style={{ ...styles.container, padding: "20px 0" }}>
+      <img
+        src="/showinfo.png"
+        alt="More Info"
         style={{
-          backgroundImage: `url(${storefrontMain})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          width: "100%",
+          maxWidth: "900px",
+          display: "block",
+          margin: "0 auto",
+          borderRadius: "16px",
+          boxShadow: "0 14px 30px rgba(15,23,42,.16)",
+        }}
+      />
+    </div>
+  )}
+
+  <ServicesSection showServices={showServices} />
+</nav>
+      <section
+  style={{
+    position: "relative",
+    width: "100%",
+    height: "500px",
+    overflow: "hidden",
+  }}
+>
+  {/* BACKGROUND IMAGE */}
+  <img
+    src={storefrontMain}
+    alt="Storefront"
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+    }}
+  />
+
+  {/* DARK OVERLAY */}
+  <div
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      background: "rgba(0,0,0,0.55)",
+    }}
+  />
+
+  {/* CONTENT */}
+  <div
+    style={{
+      position: "absolute",
+      top: "50%",
+      left: "8%",
+      transform: "translateY(-50%)",
+      color: "#fff",
+      maxWidth: "700px",
+    }}
+  >
+    <div
+      style={{
+        background: "rgba(255,255,255,0.15)",
+        display: "inline-block",
+        padding: "6px 12px",
+        borderRadius: "20px",
+        fontSize: "14px",
+        marginBottom: "15px",
+      }}
+    >
+      FDLE Licensed Provider
+    </div>
+
+    <h1
+      style={{
+        fontSize: "48px",
+        fontWeight: 800,
+        lineHeight: 1.1,
+        marginBottom: "20px",
+      }}
+    >
+      Comprehensive Fingerprinting & Business Solutions
+    </h1>
+
+    <p
+      style={{
+        fontSize: "18px",
+        marginBottom: "25px",
+        color: "#e2e8f0",
+      }}
+    >
+      Professional FD-258 FBI fingerprint cards, Live Scan Level 2 background
+      checks, and private mailbox rentals in Margate, Florida. Walk-ins welcome.
+    </p>
+
+    {/* BUTTONS */}
+    <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+      <a href={`tel:${business.phone1}`} style={styles.primaryBtn}>
+        Call Now
+      </a>
+
+      <a href="#contact" style={styles.outlineBtn}>
+        Contact Us
+      </a>
+
+      <a href="#services" style={styles.outlineBtn}>
+        View Services
+      </a>
+    </div>
+  </div>
+</section>
+<section style={{ ...styles.section, padding: "35px 0" }}>
+  <div
+    style={{
+      ...styles.container,
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+      gap: "22px",
+    }}
+  >
+    {[
+      "FD-258 FBI Fingerprint Cards",
+      "Live Scan Fingerprinting",
+      "Private Mailbox Rentals",
+    ].map((item) => (
+      <div
+        key={item}
+        style={{
+          background: "#fff",
+          border: "1px solid #dbe4ee",
+          borderRadius: "22px",
+          padding: "35px 20px",
+          textAlign: "center",
+          boxShadow: "0 14px 30px rgba(15,23,42,.06)",
+          transition: "all 0.25s ease",
+          cursor: "pointer",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "translateY(-8px)";
+          e.currentTarget.style.boxShadow = "0 20px 40px rgba(15,23,42,.15)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "translateY(0)";
+          e.currentTarget.style.boxShadow = "0 14px 30px rgba(15,23,42,.06)";
         }}
       >
         <div
           style={{
-            background:
-              "linear-gradient(to right, rgba(2,6,23,.82), rgba(2,6,23,.45))",
+            fontSize: "clamp(32px, 5vw, 52px)",
+            marginBottom: "14px",
+            lineHeight: 1,
           }}
         >
-          <div style={{ ...styles.container, padding: "96px 0", color: "#fff" }}>
-            <div
-              style={{
-                display: "inline-block",
-                background: "rgba(255,255,255,.16)",
-                padding: "8px 14px",
-                borderRadius: 999,
-                fontWeight: 600,
-              }}
-            >
-              FDLE Licensed Provider
-            </div>
-
-            <h1
-              style={{
-                fontSize: "clamp(2.3rem, 5vw, 4.5rem)",
-                lineHeight: 1.05,
-                margin: "18px 0",
-                maxWidth: 800,
-              }}
-            >
-              Comprehensive Fingerprinting & Business Solutions
-            </h1>
-
-            <p
-              style={{
-                fontSize: "1.15rem",
-                maxWidth: 760,
-                color: "rgba(255,255,255,.92)",
-                lineHeight: 1.6,
-              }}
-            >
-              Professional FD-258 FBI fingerprint cards, Live Scan Level 2
-              background checks, and private mailbox rentals in Margate,
-              Florida. Walk-ins welcome.
-            </p>
-
-            <div
-              style={{
-                display: "flex",
-                gap: 12,
-                flexWrap: "wrap",
-                marginTop: 28,
-              }}
-            >
-              <a href={`tel:${business.phone1}`} style={styles.primaryBtn}>
-                Call Now
-              </a>
-              <a
-                href="#contact"
-                style={{
-                  ...styles.outlineBtn,
-                  background: "rgba(255,255,255,.12)",
-                  color: "#fff",
-                  borderColor: "rgba(255,255,255,.28)",
-                }}
-              >
-                Contact Us
-              </a>
-              <a
-                href="#services"
-                style={{
-                  ...styles.outlineBtn,
-                  background: "rgba(255,255,255,.12)",
-                  color: "#fff",
-                  borderColor: "rgba(255,255,255,.28)",
-                }}
-              >
-                View Services
-              </a>
-            </div>
-          </div>
+          ⭐
         </div>
-      </section>
 
-      <section style={{ background: "#fff", padding: "28px 0 10px" }}>
-        <div
+        <h3
           style={{
-            ...styles.container,
-            display: "grid",
-            gap: 18,
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            fontSize: "clamp(1.1rem, 2vw, 1.45rem)",
+            margin: 0,
+            color: "#0f172a",
           }}
         >
-          {primaryServices.map((service) => (
-            <div
-              key={service.title}
-              style={{ ...styles.card, padding: 24, textAlign: "center" }}
-            >
-              <div style={{ fontSize: "2rem", marginBottom: 12 }}>⭐</div>
-              <h3 style={{ margin: 0 }}>{service.title}</h3>
-            </div>
-          ))}
-        </div>
-      </section>
+          {item}
+        </h3>
+      </div>
+    ))}
+  </div>
+</section>
 
       <section id="services" style={styles.section}>
         <div style={styles.container}>
@@ -673,12 +695,13 @@ export default function Home() {
                   flexWrap: "wrap",
                 }}
               >
-                <div style={{ flex: "1 1 320px", minHeight: 320 }}>
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                <div style={{ flex: "1 1 100px", minHeight: 320 }}>
+                  <ServiceImage
+                  src={service.image}
+                  alt={service.title}
+                  isWorkstation={service.image === workstation}
                   />
+                  
                 </div>
 
                 <div style={{ flex: "2 1 420px", padding: 34 }}>
