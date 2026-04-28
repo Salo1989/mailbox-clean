@@ -2,8 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Appointment;
 import com.example.demo.repository.AppointmentRepository;
+import com.example.demo.service.EmailService;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @RestController
@@ -12,14 +12,26 @@ import java.util.List;
 public class AppointmentController {
 
     private final AppointmentRepository appointmentRepository;
+    private final EmailService emailService;
 
-    public AppointmentController(AppointmentRepository appointmentRepository) {
+    public AppointmentController(AppointmentRepository appointmentRepository, EmailService emailService) {
         this.appointmentRepository = appointmentRepository;
+        this.emailService = emailService;
     }
 
     @PostMapping
     public Appointment createAppointment(@RequestBody Appointment appointment) {
-        return appointmentRepository.save(appointment);
+        Appointment saved = appointmentRepository.save(appointment);
+
+        emailService.sendAppointmentEmail(
+                saved.getFullName(),
+                saved.getPhone(),
+                "General Service",
+                saved.getAppointmentDate() + " " + saved.getAppointmentTime(),
+                saved.getNotes()
+        );
+
+        return saved;
     }
 
     @GetMapping
