@@ -23,13 +23,17 @@ public class AppointmentController {
     public Appointment createAppointment(@RequestBody Appointment appointment) {
         Appointment saved = appointmentRepository.save(appointment);
 
-        emailService.sendAppointmentEmail(
-                saved.getFullName(),
-                saved.getPhone(),
-                "General Service",
-                saved.getAppointmentDate() + " " + saved.getAppointmentTime(),
-                saved.getNotes()
-        );
+        try {
+            emailService.sendAppointmentEmail(
+                    saved.getFullName(),
+                    saved.getPhone(),
+                    "General Service",
+                    saved.getAppointmentDate() + " " + saved.getAppointmentTime(),
+                    saved.getNotes()
+            );
+        } catch (Exception e) {
+            System.out.println("Email failed, but appointment was saved: " + e.getMessage());
+        }
 
         return saved;
     }
