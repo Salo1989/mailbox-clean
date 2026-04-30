@@ -10,18 +10,44 @@ import java.util.List;
 public class ContactMessageService {
 
     private final ContactMessageRepository repository;
+    private final EmailService emailService;
 
-    public ContactMessageService(ContactMessageRepository repository) {
+    public ContactMessageService(
+            ContactMessageRepository repository,
+            EmailService emailService
+    ) {
         this.repository = repository;
+        this.emailService = emailService;
     }
 
     public ContactMessage saveMessage(ContactMessage message) {
-        return repository.save(message);
+
+        ContactMessage saved = repository.save(message);
+
+        try {
+
+            emailService.sendContactMessageEmail(
+                    saved.getFullName(),
+                    saved.getEmail(),
+                    saved.getPhone(),
+                    saved.getSubject(),
+                    saved.getMessage()
+            );
+
+            System.out.println("CONTACT EMAIL SENT");
+
+        } catch (Exception e) {
+
+            System.out.println("CONTACT EMAIL FAILED: " + e.getMessage());
+        }
+
+        return saved;
     }
 
     public List<ContactMessage> getAllMessages() {
         return repository.findAll();
     }
+
     public void deleteMessage(Long id) {
         repository.deleteById(id);
     }

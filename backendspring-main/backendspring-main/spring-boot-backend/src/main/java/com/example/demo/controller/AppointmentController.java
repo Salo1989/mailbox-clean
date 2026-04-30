@@ -27,7 +27,7 @@ public class AppointmentController {
             emailService.sendAppointmentEmail(
                     saved.getFullName(),
                     saved.getPhone(),
-                    "General Service",
+                    "Life Scan",
                     saved.getAppointmentDate() + " " + saved.getAppointmentTime(),
                     saved.getNotes()
             );

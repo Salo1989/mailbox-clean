@@ -17,11 +17,18 @@ public class EmailService {
         this.mailSender = mailSender;
     }
 
-    public void sendAppointmentEmail(String name, String phone, String service, String dateTime, String message) {
+    public void sendAppointmentEmail(
+            String name,
+            String phone,
+            String service,
+            String dateTime,
+            String message
+    ) {
+
         SimpleMailMessage email = new SimpleMailMessage();
 
         email.setTo(dadEmail);
-        email.setSubject("New Appointment Booked");
+        email.setSubject("New Appointment Booked - Life Scan");
 
         email.setText(
                 "A new appointment was booked:\n\n" +
@@ -33,5 +40,31 @@ public class EmailService {
         );
 
         mailSender.send(email);
+    }
+
+    public void sendContactMessageEmail(
+            String fullName,
+            String email,
+            String phone,
+            String subject,
+            String messageText
+    ) {
+
+        SimpleMailMessage message = new SimpleMailMessage();
+
+        message.setTo(dadEmail);
+
+        message.setSubject("New Life Scan Contact Message");
+
+        message.setText(
+                "New contact message from Life Scan website:\n\n" +
+                        "Name: " + fullName + "\n" +
+                        "Email: " + email + "\n" +
+                        "Phone: " + phone + "\n" +
+                        "Subject: " + subject + "\n\n" +
+                        "Message:\n" + messageText
+        );
+
+        mailSender.send(message);
     }
 }
