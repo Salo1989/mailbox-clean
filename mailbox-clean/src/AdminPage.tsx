@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API_URL = "http://localhost:8080";
+const API_URL = "http://13.60.60.33:8080";
 
 type ContactMessage = {
   id?: number;

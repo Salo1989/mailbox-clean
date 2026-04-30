@@ -1350,6 +1350,21 @@ export default function Home() {
       <footer
         style={{ background: "#0f172a", color: "#cbd5e1", padding: "40px 0" }}
       >
+        <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        style={{
+        marginTop: 20,
+        padding: "10px 20px",
+        backgroundColor: "#2563eb",
+        color: "white",
+        border: "none",
+        borderRadius: 8,
+        cursor: "pointer",
+        fontWeight: "bold",
+        }}
+>
+  Back to Top ↑
+</button>
         <div style={{ ...styles.container, textAlign: "center" }}>
           <p style={{ color: "#fff", fontWeight: 700, marginBottom: 8 }}>
             {business.name}

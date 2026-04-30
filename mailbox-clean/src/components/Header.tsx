@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
   return (
     <header
@@ -85,7 +87,7 @@ export default function Header() {
             )}
           </div>
         </div>
-
+             <Link to="/spanish" style={{ textDecoration: "none" }}>
         {/* RIGHT IMAGE */}
         <div
           style={{
@@ -107,7 +109,7 @@ export default function Header() {
               display: "block",
             }}
           />
-        </div>
+        </div></Link>
       </div>
     </header>
   );
