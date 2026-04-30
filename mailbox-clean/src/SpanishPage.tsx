@@ -261,7 +261,7 @@ export default function SpanishPage() {
     try {
       setIsSubmitting(true);
 
-      const response = await fetch("http://localhost:8080/api/contact", {
+      const response = await fetch("http://13.60.60.33:8080/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -312,7 +312,7 @@ export default function SpanishPage() {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/api/appointments", {
+      const response = await fetch("http://13.60.60.33:8080/api/appointments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
