@@ -87,29 +87,48 @@ export default function Header() {
             )}
           </div>
         </div>
-             <Link to="/spanish" style={{ textDecoration: "none" }}>
-        {/* RIGHT IMAGE */}
-        <div
-          style={{
-            flex: 0.8,
-            background: "white",
-            borderRadius: "24px",
-            padding: "18px",
-            boxShadow: "0 14px 30px rgba(0,0,0,0.25)",
-            transform: "rotate(2deg)",
-          }}
-        >
-          <img
-            src="/spanish.png"
-            alt="Hablamos Español"
-            style={{
-              width: "100%",
-              maxHeight: "210px",
-              objectFit: "contain",
-              display: "block",
-            }}
-          />
-        </div></Link>
+     <Link
+  to="/spanish"
+  style={{
+    textDecoration: "none",
+    color: "inherit",
+  }}
+>
+  {/* RIGHT IMAGE */}
+  <div
+    style={{
+      flex: 0.8,
+      background: "white",
+      borderRadius: "24px",
+      padding: "18px",
+      boxShadow: "0 14px 30px rgba(0,0,0,0.25)",
+      transform: "rotate(2deg)",
+    }}
+  >
+    <img
+      src="/spanish.png"
+      alt="Hablamos Español"
+      style={{
+        width: "100%",
+        maxHeight: "210px",
+        objectFit: "contain",
+        display: "block",
+      }}
+    />
+
+    <p
+      style={{
+        marginTop: "12px",
+        textAlign: "center",
+        fontWeight: 700,
+        color: "#1d4ed8",
+        fontSize: "16px",
+      }}
+    >
+      ⬆️ Haga clic en la foto para ver el sitio en español 🇪🇸
+    </p>
+  </div>
+</Link>
       </div>
     </header>
   );
