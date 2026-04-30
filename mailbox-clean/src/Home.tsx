@@ -1,8 +1,7 @@
 import React, { useState, type CSSProperties } from "react";
-import { Link } from "react-router-dom";
 import ServiceImage from "./components/ServiceImage";
 import Header from "./components/Header";
-import ServicesSection from "./components/ServicesSection";
+import Navbar from "./components/Navbar";
 const storefrontMain =
   "/attached_assets/fa69cb6a-0bc0-481e-8737-890e8cfc3980_1769780630700.jpeg";
 const storefrontAlt =
@@ -415,115 +414,14 @@ export default function Home() {
         </div>
       )}
       
-<nav style={{ background: "#fff", borderBottom: "1px solid #e2e8f0" }}>
-  <div
-    style={{
-      ...styles.container,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      padding: "14px 0",
-      flexWrap: "wrap",
-      gap: "12px",
-    }}
-  >
-    {/* LOGO */}
-    <img
-      src="/logo.png"
-      alt="Logo"
-      style={{
-        height: "150px",
-        maxWidth: "250px",
-        objectFit: "contain",
-      }}
-    />
-
-    {/* BUTTONS */}
-    <div
-      style={{
-        display: "flex",
-        gap: "10px",
-        flexWrap: "wrap",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      {/* SHOW INFO */}
-      <button
-        type="button"
-        onClick={() => {
-          setShowMessage((prev) => !prev);
-          setShowServices(false);
-        }}
-        style={{ ...styles.outlineBtn, transition: "all 0.2s ease" }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = "translateY(-3px)";
-          e.currentTarget.style.boxShadow =
-            "0 10px 22px rgba(15,23,42,.18)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = "translateY(0)";
-          e.currentTarget.style.boxShadow = "none";
-        }}
-      >
-        {showMessage ? "Hide Info" : "Show More Info"}
-      </button>
-
-      {/* SHOW SERVICES */}
-      <button
-        type="button"
-        onClick={() => {
-          setShowServices((prev) => !prev);
-          setShowMessage(false);
-        }}
-        style={{ ...styles.outlineBtn, transition: "all 0.2s ease" }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = "translateY(-3px)";
-          e.currentTarget.style.boxShadow =
-            "0 10px 22px rgba(15,23,42,.18)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = "translateY(0)";
-          e.currentTarget.style.boxShadow = "none";
-        }}
-      >
-        {showServices ? "Hide Services" : "Show Services"}
-      </button>
-
-      <a href="#services" style={styles.outlineBtn}>Services</a>
-      <a href="#hours" style={styles.outlineBtn}>Hours</a>
-      <a href="#contact" style={styles.outlineBtn}>Contact</a>
-
-      <a href={`tel:${business.phone1}`} style={styles.primaryBtn}>
-        Call Now
-      </a>
-
-      <Link to="/admin" style={styles.outlineBtn}>
-        Admin
-      </Link>
-    </div>
-  </div>
-
-  {/* ✅ SHOW INFO IMAGE */}
-  {showMessage && (
-    <div style={{ ...styles.container, padding: "20px 0" }}>
-      <img
-        src="/showinfo.png"
-        alt="More Info"
-        style={{
-          width: "100%",
-          maxWidth: "900px",
-          display: "block",
-          margin: "0 auto",
-          borderRadius: "16px",
-          boxShadow: "0 14px 30px rgba(15,23,42,.16)",
-        }}
-      />
-    </div>
-  )}
-
-  <ServicesSection showServices={showServices} />
-</nav>
+<Navbar
+  showMessage={showMessage}
+  setShowMessage={setShowMessage}
+  showServices={showServices}
+  setShowServices={setShowServices}
+  business={business}
+  styles={styles}
+/>
       <section
   style={{
     position: "relative",
