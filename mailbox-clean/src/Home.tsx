@@ -1,4 +1,16 @@
 import React, { useState, type CSSProperties } from "react";
+import {
+  ArrowUp,
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  Clock3,
+  Fingerprint,
+  Mail,
+  ShieldCheck,
+  Star,
+  XCircle,
+} from "lucide-react";
 import ServiceImage from "./components/ServiceImage";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -124,63 +136,76 @@ const videos = [
 
 const styles = {
   page: {
-    fontFamily: "Arial, Helvetica, sans-serif",
+    fontFamily:
+      "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     color: "#0f172a",
-    background: "#f8fafc",
+    background:
+      "radial-gradient(circle at 12% 4%, rgba(14, 165, 233, 0.13), transparent 28%), linear-gradient(180deg, #f8fbff 0%, #eef5fb 46%, #f8fafc 100%)",
+    minHeight: "100vh",
   } as const,
   container: {
-    width: "min(1120px, calc(100% - 32px))",
+    width: "min(1180px, calc(100% - 32px))",
     margin: "0 auto",
   } as const,
   section: {
-    padding: "80px 0",
+    padding: "88px 0",
   } as const,
   card: {
-    background: "#fff",
-    border: "1px solid #e2e8f0",
-    borderRadius: "22px",
-    boxShadow: "0 10px 25px rgba(15,23,42,0.06)",
+    background: "rgba(255,255,255,0.94)",
+    border: "1px solid rgba(148,163,184,0.22)",
+    borderRadius: "18px",
+    boxShadow: "0 20px 55px rgba(15,23,42,0.09)",
+    backdropFilter: "blur(12px)",
   } as const,
   primaryBtn: {
-    display: "inline-block",
-    background: "#0369a1",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "linear-gradient(135deg, #0f766e 0%, #0369a1 100%)",
     color: "#fff",
-    padding: "13px 18px",
-    borderRadius: "10px",
+    padding: "13px 20px",
+    borderRadius: "999px",
     fontWeight: 700,
     textDecoration: "none",
     border: "none",
     cursor: "pointer",
+    boxShadow: "0 14px 28px rgba(3,105,161,0.24)",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease",
   } as const,
   outlineBtn: {
-    display: "inline-block",
-    background: "#fff",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "rgba(255,255,255,0.92)",
     color: "#0f172a",
-    padding: "13px 18px",
-    borderRadius: "10px",
-    border: "1px solid #cbd5e1",
+    padding: "13px 20px",
+    borderRadius: "999px",
+    border: "1px solid rgba(148,163,184,0.36)",
     fontWeight: 700,
     textDecoration: "none",
+    boxShadow: "0 10px 24px rgba(15,23,42,0.07)",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
   } as const,
   serviceCard: {
-    background: "#fff",
-    border: "1px solid #dbe4ee",
-    borderRadius: "22px",
+    background: "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)",
+    border: "1px solid rgba(148,163,184,0.24)",
+    borderRadius: "18px",
     padding: "28px 20px",
     textAlign: "center",
     fontWeight: 600,
-    boxShadow: "0 14px 30px rgba(15,23,42,.06)",
+    boxShadow: "0 16px 38px rgba(15,23,42,.08)",
   } as const,
 };
 
 const inputStyle: CSSProperties = {
   width: "100%",
-  border: "1px solid #cbd5e1",
-  borderRadius: "12px",
-  padding: "14px",
+  border: "1px solid rgba(148,163,184,0.36)",
+  borderRadius: "14px",
+  padding: "14px 15px",
   font: "inherit",
-  background: "#fff",
+  background: "#f8fafc",
   boxSizing: "border-box",
+  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.8)",
 };
 
 function SectionTitle({
@@ -192,15 +217,22 @@ function SectionTitle({
 }) {
   return (
     
-    <div style={{ textAlign: "center", maxWidth: 760, margin: "0 auto 44px" }}>
-      <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", margin: "0 0 14px" }}>
+    <div style={{ textAlign: "center", maxWidth: 760, margin: "0 auto 48px" }}>
+      <h2
+        style={{
+          fontSize: "clamp(2rem, 4vw, 3.15rem)",
+          lineHeight: 1.05,
+          margin: "0 0 14px",
+          letterSpacing: 0,
+        }}
+      >
         {title}
       </h2>
       {subtitle ? (
         <p
           style={{
             margin: 0,
-            color: "#475569",
+            color: "#526176",
             fontSize: "1.08rem",
             lineHeight: 1.6,
           }}
@@ -383,7 +415,7 @@ export default function Home() {
             animation: "slideIn 0.4s ease",
           }}
         >
-          <span style={{ fontSize: "18px" }}>✔</span>
+          <CheckCircle2 size={20} />
           <span>{successMessage}</span>
         </div>
       )}
@@ -409,7 +441,7 @@ export default function Home() {
             animation: "slideIn 0.4s ease",
           }}
         >
-          <span style={{ fontSize: "18px" }}>✖</span>
+          <XCircle size={20} />
           <span>{errorMessage}</span>
         </div>
       )}
@@ -426,8 +458,9 @@ export default function Home() {
   style={{
     position: "relative",
     width: "100%",
-    height: "500px",
+    height: "clamp(560px, 72vh, 760px)",
     overflow: "hidden",
+    isolation: "isolate",
   }}
 >
   {/* BACKGROUND IMAGE */}
@@ -438,6 +471,7 @@ export default function Home() {
       width: "100%",
       height: "100%",
       objectFit: "cover",
+      filter: "saturate(1.05) contrast(1.05)",
     }}
   />
 
@@ -449,7 +483,17 @@ export default function Home() {
       left: 0,
       width: "100%",
       height: "100%",
-      background: "rgba(0,0,0,0.55)",
+      background:
+        "linear-gradient(90deg, rgba(2,6,23,0.86) 0%, rgba(2,6,23,0.58) 48%, rgba(2,6,23,0.2) 100%)",
+    }}
+  />
+  <div
+    style={{
+      position: "absolute",
+      inset: "auto 0 0",
+      height: "42%",
+      background: "linear-gradient(0deg, rgba(248,250,252,0.95), transparent)",
+      pointerEvents: "none",
     }}
   />
 
@@ -458,31 +502,39 @@ export default function Home() {
     style={{
       position: "absolute",
       top: "50%",
-      left: "8%",
+      left: "max(32px, 8vw)",
       transform: "translateY(-50%)",
       color: "#fff",
-      maxWidth: "700px",
+      maxWidth: "780px",
+      textShadow: "0 2px 18px rgba(0,0,0,0.34)",
     }}
   >
     <div
       style={{
-        background: "rgba(255,255,255,0.15)",
-        display: "inline-block",
-        padding: "6px 12px",
-        borderRadius: "20px",
+        background: "rgba(255,255,255,0.16)",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 8,
+        padding: "8px 14px",
+        borderRadius: "999px",
         fontSize: "14px",
-        marginBottom: "15px",
+        fontWeight: 800,
+        marginBottom: "18px",
+        border: "1px solid rgba(255,255,255,0.28)",
+        backdropFilter: "blur(10px)",
       }}
     >
+      <ShieldCheck size={16} />
       FDLE Licensed Provider
     </div>
 
     <h1
       style={{
-        fontSize: "48px",
+        fontSize: "clamp(2.6rem, 5.6vw, 5.3rem)",
         fontWeight: 800,
-        lineHeight: 1.1,
+        lineHeight: 0.98,
         marginBottom: "20px",
+        letterSpacing: 0,
       }}
     >
       Comprehensive Fingerprinting & Business Solutions
@@ -490,9 +542,11 @@ export default function Home() {
 
     <p
       style={{
-        fontSize: "18px",
+        fontSize: "clamp(1rem, 1.4vw, 1.22rem)",
         marginBottom: "25px",
-        color: "#e2e8f0",
+        color: "#e6eef8",
+        lineHeight: 1.68,
+        maxWidth: 720,
       }}
     >
       Professional FD-258 FBI fingerprint cards, Live Scan Level 2 background
@@ -515,7 +569,7 @@ export default function Home() {
     </div>
   </div>
 </section>
-<section style={{ ...styles.section, padding: "35px 0" }}>
+<section style={{ ...styles.section, padding: "42px 0 58px" }}>
   <div
     style={{
       ...styles.container,
@@ -525,25 +579,25 @@ export default function Home() {
     }}
   >
     {[
-      "FD-258 FBI Fingerprint Cards",
-      "Live Scan Fingerprinting",
-      "Private Mailbox Rentals",
-    ].map((item) => (
+      { label: "FD-258 FBI Fingerprint Cards", Icon: Fingerprint },
+      { label: "Live Scan Fingerprinting", Icon: ShieldCheck },
+      { label: "Private Mailbox Rentals", Icon: Mail },
+    ].map(({ label, Icon }) => (
       <div
-        key={item}
+        key={label}
         style={{
-          background: "#fff",
-          border: "1px solid #dbe4ee",
-          borderRadius: "22px",
-          padding: "35px 20px",
+          background: "linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)",
+          border: "1px solid rgba(148,163,184,0.24)",
+          borderRadius: "18px",
+          padding: "34px 22px",
           textAlign: "center",
-          boxShadow: "0 14px 30px rgba(15,23,42,.06)",
+          boxShadow: "0 18px 42px rgba(15,23,42,.08)",
           transition: "all 0.25s ease",
           cursor: "pointer",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "translateY(-8px)";
-          e.currentTarget.style.boxShadow = "0 20px 40px rgba(15,23,42,.15)";
+          e.currentTarget.style.boxShadow = "0 24px 54px rgba(15,23,42,.15)";
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = "translateY(0)";
@@ -557,17 +611,31 @@ export default function Home() {
             lineHeight: 1,
           }}
         >
-          ⭐
+          <span
+            style={{
+              width: 66,
+              height: 66,
+              margin: "0 auto",
+              borderRadius: 18,
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "linear-gradient(135deg, #e0f2fe, #ccfbf1)",
+              color: "#0369a1",
+            }}
+          >
+            <Icon size={34} strokeWidth={1.9} />
+          </span>
         </div>
 
         <h3
           style={{
             fontSize: "clamp(1.1rem, 2vw, 1.45rem)",
             margin: 0,
-            color: "#0f172a",
+            color: "#102033",
           }}
         >
-          {item}
+          {label}
         </h3>
       </div>
     ))}
@@ -591,9 +659,17 @@ export default function Home() {
                   flexDirection: index % 2 === 1 ? "row-reverse" : "row",
                   overflow: "hidden",
                   flexWrap: "wrap",
+                  border: "1px solid rgba(14,165,233,0.16)",
                 }}
               >
-                <div style={{ flex: "1 1 100px", minHeight: 320 }}>
+                <div
+                  style={{
+                    flex: "1 1 320px",
+                    minHeight: 340,
+                    background:
+                      "linear-gradient(135deg, rgba(224,242,254,0.88), rgba(240,253,250,0.88))",
+                  }}
+                >
                   <ServiceImage
                   src={service.image}
                   alt={service.title}
@@ -602,13 +678,13 @@ export default function Home() {
                   
                 </div>
 
-                <div style={{ flex: "2 1 420px", padding: 34 }}>
-                  <h3 style={{ marginTop: 0, fontSize: "2rem" }}>
+                <div style={{ flex: "2 1 420px", padding: "clamp(28px, 4vw, 44px)" }}>
+                  <h3 style={{ marginTop: 0, fontSize: "clamp(1.7rem, 3vw, 2.25rem)" }}>
                     {service.title}
                   </h3>
                   <p
                     style={{
-                      color: "#475569",
+                      color: "#526176",
                       fontSize: "1.08rem",
                       lineHeight: 1.6,
                     }}
@@ -634,7 +710,7 @@ export default function Home() {
                           alignItems: "center",
                         }}
                       >
-                        <span style={{ color: "#0369a1" }}>✔</span>
+                        <CheckCircle2 size={18} color="#0f766e" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -656,7 +732,14 @@ export default function Home() {
       </section>
 
       <section
-        style={{ ...styles.section, background: "#0369a1", color: "#fff" }}
+        style={{
+          ...styles.section,
+          background:
+            "linear-gradient(135deg, #063047 0%, #075985 48%, #0f766e 100%)",
+          color: "#fff",
+          position: "relative",
+          overflow: "hidden",
+        }}
       >
         <div style={styles.container}>
           <div
@@ -698,14 +781,29 @@ export default function Home() {
               <div
                 key={item.title}
                 style={{
-                  background: "rgba(255,255,255,.12)",
-                  border: "1px solid rgba(255,255,255,.12)",
-                  borderRadius: 22,
-                  padding: 26,
+                  background: "rgba(255,255,255,.13)",
+                  border: "1px solid rgba(255,255,255,.2)",
+                  borderRadius: 18,
+                  padding: 28,
                   textAlign: "center",
+                  boxShadow: "0 18px 38px rgba(2,6,23,0.16)",
+                  backdropFilter: "blur(10px)",
                 }}
               >
-                <div style={{ fontSize: "2rem", marginBottom: 12 }}>✅</div>
+                <div
+                  style={{
+                    width: 58,
+                    height: 58,
+                    margin: "0 auto 14px",
+                    borderRadius: 18,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: "rgba(255,255,255,0.16)",
+                  }}
+                >
+                  <Star size={28} />
+                </div>
                 <h3>{item.title}</h3>
                 <p style={{ color: "rgba(255,255,255,.86)", lineHeight: 1.6 }}>
                   {item.text}
@@ -723,17 +821,28 @@ export default function Home() {
             subtitle="Browse our storefront, service area, mailbox rentals, and workspace."
           />
 
-          <div style={{ position: "relative", maxWidth: 900, margin: "0 auto" }}>
+          <div
+            style={{
+              position: "relative",
+              maxWidth: 980,
+              margin: "0 auto",
+              padding: 10,
+              borderRadius: 24,
+              background: "rgba(255,255,255,0.72)",
+              border: "1px solid rgba(148,163,184,0.24)",
+              boxShadow: "0 22px 60px rgba(15,23,42,0.12)",
+            }}
+          >
             <img
               src={gallery[currentGalleryIndex]}
               alt="Gallery"
               onClick={() => setSelectedImage(gallery[currentGalleryIndex])}
               style={{
                 width: "100%",
-                height: 400,
+                height: "clamp(330px, 48vw, 520px)",
                 objectFit: "cover",
-                borderRadius: 20,
-                boxShadow: "0 14px 30px rgba(15,23,42,.14)",
+                borderRadius: 18,
+                boxShadow: "0 14px 30px rgba(15,23,42,.12)",
                 cursor: "pointer",
               }}
             />
@@ -746,16 +855,20 @@ export default function Home() {
                 top: "50%",
                 left: 10,
                 transform: "translateY(-50%)",
-                background: "rgba(0,0,0,0.5)",
+                background: "rgba(2,6,23,0.68)",
                 color: "white",
-                border: "none",
+                border: "1px solid rgba(255,255,255,0.22)",
                 borderRadius: "50%",
-                width: 40,
-                height: 40,
+                width: 46,
+                height: 46,
                 cursor: "pointer",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backdropFilter: "blur(10px)",
               }}
             >
-              ◀
+              <ChevronLeft size={22} />
             </button>
 
             <button
@@ -766,16 +879,20 @@ export default function Home() {
                 top: "50%",
                 right: 10,
                 transform: "translateY(-50%)",
-                background: "rgba(0,0,0,0.5)",
+                background: "rgba(2,6,23,0.68)",
                 color: "white",
-                border: "none",
+                border: "1px solid rgba(255,255,255,0.22)",
                 borderRadius: "50%",
-                width: 40,
-                height: 40,
+                width: 46,
+                height: 46,
                 cursor: "pointer",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backdropFilter: "blur(10px)",
               }}
             >
-              ▶
+              <ChevronRight size={22} />
             </button>
           </div>
 
@@ -798,12 +915,16 @@ export default function Home() {
                   width: 78,
                   height: 78,
                   objectFit: "cover",
-                  borderRadius: 12,
+                  borderRadius: 14,
                   cursor: "pointer",
+                  boxShadow:
+                    currentGalleryIndex === index
+                      ? "0 10px 24px rgba(3,105,161,0.24)"
+                      : "0 8px 18px rgba(15,23,42,0.08)",
                   border:
                     currentGalleryIndex === index
-                      ? "3px solid #0369a1"
-                      : "2px solid #e2e8f0",
+                      ? "3px solid #0f766e"
+                      : "2px solid rgba(226,232,240,0.96)",
                 }}
               />
             ))}
@@ -889,7 +1010,7 @@ export default function Home() {
                 marginBottom: 20,
               }}
             >
-              <span style={{ color: "#0369a1" }}>🕒</span>
+              <Clock3 size={24} color="#0f766e" />
               <span>Hours of Operation</span>
             </div>
 
@@ -1246,22 +1367,29 @@ export default function Home() {
       </section>
 
       <footer
-        style={{ background: "#0f172a", color: "#cbd5e1", padding: "40px 0" }}
+        style={{
+          background: "linear-gradient(135deg, #07111f 0%, #0f172a 100%)",
+          color: "#cbd5e1",
+          padding: "42px 0",
+        }}
       >
         <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         style={{
-        marginTop: 20,
-        padding: "10px 20px",
-        backgroundColor: "#2563eb",
+        margin: "0 auto 24px",
+        padding: "11px 18px",
+        background: "rgba(255,255,255,0.1)",
         color: "white",
-        border: "none",
-        borderRadius: 8,
+        border: "1px solid rgba(255,255,255,0.18)",
+        borderRadius: 999,
         cursor: "pointer",
         fontWeight: "bold",
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
         }}
 >
-  Back to Top ↑
+  Back to Top <ArrowUp size={16} />
 </button>
         <div style={{ ...styles.container, textAlign: "center" }}>
           <p style={{ color: "#fff", fontWeight: 700, marginBottom: 8 }}>
@@ -1269,10 +1397,10 @@ export default function Home() {
           </p>
           <p>{business.address}</p>
           <p>
-            {business.phone1} • {business.email1}
+            {business.phone1} - {business.email1}
           </p>
           <p style={{ marginTop: 14, color: "#94a3b8", fontSize: ".9rem" }}>
-            © {new Date().getFullYear()} {business.name}. All rights reserved.
+            Copyright {new Date().getFullYear()} {business.name}. All rights reserved.
           </p>
         </div>
       </footer>

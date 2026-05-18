@@ -42,11 +42,13 @@ export default function Navbar({
   return (
     <nav
       style={{
-        background: "#fff",
-        borderBottom: "1px solid #e2e8f0",
+        background: "rgba(255,255,255,0.9)",
+        borderBottom: "1px solid rgba(148,163,184,0.22)",
         position: "sticky",
         top: 0,
         zIndex: 1000,
+        backdropFilter: "blur(16px)",
+        boxShadow: "0 10px 32px rgba(15,23,42,0.06)",
       }}
     >
       <div
@@ -55,7 +57,7 @@ export default function Navbar({
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "14px 0",
+          padding: "12px 0",
           flexWrap: "wrap",
           gap: "12px",
         }}
@@ -65,9 +67,10 @@ export default function Navbar({
           src="/logo.png"
           alt="Logo"
           style={{
-            height: "110px",
-            maxWidth: "220px",
+            height: "88px",
+            maxWidth: "200px",
             objectFit: "contain",
+            filter: "drop-shadow(0 8px 14px rgba(15,23,42,0.1))",
           }}
         />
 

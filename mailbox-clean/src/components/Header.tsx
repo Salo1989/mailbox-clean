@@ -1,51 +1,60 @@
 import { Link } from "react-router-dom";
+import { Languages, MapPin, Package, Printer, ShieldCheck } from "lucide-react";
 
 export default function Header() {
   return (
     <header
       style={{
         width: "100%",
-        marginBottom: "24px",
-        padding: "18px",
+        marginBottom: "18px",
+        padding: "18px 18px 10px",
       }}
     >
       <div
         style={{
-          minHeight: "260px",
-          borderRadius: "26px",
+          minHeight: "300px",
+          borderRadius: "24px",
           overflow: "hidden",
           background:
-            "linear-gradient(135deg, #0f172a 0%, #1d4ed8 45%, #2563eb 100%)",
+            "linear-gradient(135deg, #07111f 0%, #075985 48%, #0f766e 100%)",
           color: "white",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "30px",
-          boxShadow: "0 18px 40px rgba(0,0,0,0.25)",
+          padding: "clamp(24px, 4vw, 42px)",
+          boxShadow: "0 24px 70px rgba(2,6,23,0.28)",
           gap: "24px",
+          border: "1px solid rgba(255,255,255,0.14)",
+          position: "relative",
+          flexWrap: "wrap",
         }}
       >
         {/* LEFT CONTENT */}
         <div style={{ flex: 1.4 }}>
           <div
             style={{
-              display: "inline-block",
-              background: "rgba(255,255,255,0.15)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "rgba(255,255,255,0.14)",
               padding: "8px 14px",
               borderRadius: "999px",
               fontSize: "14px",
+              fontWeight: 800,
               marginBottom: "18px",
+              border: "1px solid rgba(255,255,255,0.2)",
             }}
           >
-            📍 Local Mailbox & Shipping Center
+            <MapPin size={16} /> Local Mailbox & Shipping Center
           </div>
 
           <h1
             style={{
-              fontSize: "44px",
+              fontSize: "clamp(2.5rem, 5vw, 4.75rem)",
               margin: "0 0 14px",
               fontWeight: 800,
-              lineHeight: 1.1,
+              lineHeight: 0.98,
+              letterSpacing: 0,
             }}
           >
             Mailbox Store
@@ -53,12 +62,14 @@ export default function Header() {
 
           <p
             style={{
-              fontSize: "21px",
+              fontSize: "clamp(1rem, 1.7vw, 1.28rem)",
               marginBottom: "20px",
               maxWidth: "720px",
+              color: "#e6eef8",
+              lineHeight: 1.55,
             }}
           >
-            📦 Shipping • 🖨 Printing • 📄 Notary • 🔐 Private Mailboxes
+            Shipping, printing, notary, and private mailbox services
           </p>
 
           <div
@@ -68,23 +79,32 @@ export default function Header() {
               gap: "12px",
             }}
           >
-            {["UPS", "FedEx", "USPS", "Amazon Returns", "Live Scan"].map(
-              (item) => (
+            {[
+              { item: "UPS", Icon: Package },
+              { item: "FedEx", Icon: Package },
+              { item: "USPS", Icon: Package },
+              { item: "Printing", Icon: Printer },
+              { item: "Live Scan", Icon: ShieldCheck },
+            ].map(({ item, Icon }) => (
                 <span
                   key={item}
                   style={{
-                    background: "white",
-                    color: "#1d4ed8",
+                    background: "rgba(255,255,255,0.94)",
+                    color: "#075985",
                     padding: "10px 14px",
-                    borderRadius: "12px",
+                    borderRadius: "999px",
                     fontWeight: 700,
                     fontSize: "14px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 8,
+                    boxShadow: "0 10px 24px rgba(2,6,23,0.14)",
                   }}
                 >
+                  <Icon size={16} />
                   {item}
                 </span>
-              )
-            )}
+              ))}
           </div>
         </div>
      <Link
@@ -97,12 +117,12 @@ export default function Header() {
   {/* RIGHT IMAGE */}
   <div
     style={{
-      flex: 0.8,
-      background: "white",
-      borderRadius: "24px",
+      flex: "0 1 360px",
+      background: "rgba(255,255,255,0.96)",
+      borderRadius: "22px",
       padding: "18px",
-      boxShadow: "0 14px 30px rgba(0,0,0,0.25)",
-      transform: "rotate(2deg)",
+      boxShadow: "0 22px 48px rgba(2,6,23,0.24)",
+      border: "1px solid rgba(255,255,255,0.65)",
     }}
   >
     <img
@@ -113,6 +133,7 @@ export default function Header() {
         maxHeight: "210px",
         objectFit: "contain",
         display: "block",
+        filter: "drop-shadow(0 8px 16px rgba(15,23,42,0.12))",
       }}
     />
 
@@ -120,12 +141,16 @@ export default function Header() {
       style={{
         marginTop: "12px",
         textAlign: "center",
-        fontWeight: 700,
-        color: "#1d4ed8",
+        fontWeight: 800,
+        color: "#075985",
         fontSize: "16px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 8,
       }}
     >
-      ⬆️ Haga clic en la foto para ver el sitio en español 🇪🇸
+      <Languages size={18} /> Haga clic en la foto para ver el sitio en español
     </p>
   </div>
 </Link>
